@@ -1941,13 +1941,14 @@ void Draw_Info_Menu() {
 
   DWIN_Draw_String(false, false, font8x16, Color_White, Color_Bg_Black, (DWIN_WIDTH - strlen(MACHINE_SIZE) * MENU_CHR_W) / 2, 122, F(MACHINE_SIZE));
   DWIN_Draw_String(false, false, font8x16, Color_White, Color_Bg_Black, (DWIN_WIDTH - strlen(SHORT_BUILD_VERSION) * MENU_CHR_W) / 2, 195, F(SHORT_BUILD_VERSION));
+  DWIN_Draw_String(false, false, font8x16, Color_White, Color_Bg_Black, (DWIN_WIDTH - strlen(__DATE__ " " __TIME__) * MENU_CHR_W) / 2, 215, F(__DATE__ " " __TIME__));
 
   if (HMI_IsChinese()) {
     DWIN_Frame_TitleCopy(1, 30, 17, 57, 29); // "Info"
 
     DWIN_Frame_AreaCopy(1, 197, 149, 252, 161, 108, 102);
     DWIN_Frame_AreaCopy(1, 1, 164, 56, 176, 108, 175);
-    DWIN_Frame_AreaCopy(1, 58, 164, 113, 176, 105, 248);
+    DWIN_Frame_AreaCopy(1, 58, 164, 113, 176, 105, 268);
   }
   else {
     #ifdef USE_STRING_HEADINGS
@@ -1958,15 +1959,18 @@ void Draw_Info_Menu() {
 
     DWIN_Frame_AreaCopy(1, 120, 150, 146, 161, 124, 102);
     DWIN_Frame_AreaCopy(1, 146, 151, 254, 161, 82, 175);
-    DWIN_Frame_AreaCopy(1, 0, 165, 94, 175, 89, 248);
+    DWIN_Frame_AreaCopy(1, 0, 165, 94, 175, 89, 268);
   }
-  DWIN_Draw_String(false, false, font8x16, Color_White, Color_Bg_Black, (DWIN_WIDTH - strlen(CORP_WEBSITE) * MENU_CHR_W) / 2, 268, F(CORP_WEBSITE));
+  DWIN_Draw_String(false, false, font8x16, Color_White, Color_Bg_Black, (DWIN_WIDTH - strlen(CORP_WEBSITE) * MENU_CHR_W) / 2, 288, F(CORP_WEBSITE));
 
   Draw_Back_First();
-  LOOP_L_N(i, 3) {
-    DWIN_ICON_Show(ICON, ICON_PrintSize + i, 26, 99 + i * 73);
-    DWIN_Draw_Line(Line_Color, 16, MBASE(2) + i * 73, 256, 156 + i * 73);
-  }
+
+  DWIN_ICON_Show(ICON, ICON_PrintSize, 26, 99 + 0 * 73);
+  DWIN_Draw_Line(Line_Color, 16, MBASE(2) + 0 * 73,      256, 156 + 0 * 73);
+  DWIN_ICON_Show(ICON, ICON_Version,   26, 99 + 1 * 73);
+  DWIN_Draw_Line(Line_Color, 16, MBASE(2) + 1 * 73 + 20, 256, 156 + 1 * 73 + 20);
+  DWIN_ICON_Show(ICON, ICON_Contact,   26, 99 + 2 * 73 + 20);
+  DWIN_Draw_Line(Line_Color, 16, MBASE(2) + 2 * 73 + 20, 256, 156 + 2 * 73 + 20);
 }
 
 void Draw_Print_File_Menu() {
