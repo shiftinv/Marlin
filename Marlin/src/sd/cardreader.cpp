@@ -253,17 +253,19 @@ void CardReader::printListing(SdFile parent, const char * const prepend/*=nullpt
       char dosFilename[FILENAME_LENGTH];
       createFilename(dosFilename, p);
 
+      char *tmpFilename = TERN(LONG_FILENAME_HOST_SUPPORT, longFilename[0] ? longFilename : dosFilename, dosFilename);
+
       // Allocate enough stack space for the full path to a folder, trailing slash, and nul
       const bool prepend_is_empty = (!prepend || prepend[0] == '\0');
-      const int len = (prepend_is_empty ? 1 : strlen(prepend)) + strlen(dosFilename) + 1 + 1;
+      const int len = (prepend_is_empty ? 1 : strlen(prepend)) + strlen(tmpFilename) + 1 + 1;
       char path[len];
 
       // Append the FOLDERNAME12/ to the passed string.
       // It contains the full path to the "parent" argument.
       // We now have the full path to the item in this folder.
       strcpy(path, prepend_is_empty ? "/" : prepend); // root slash if prepend is empty
-      strcat(path, dosFilename);                      // FILENAME_LENGTH characters maximum
-      strcat(path, "/");                              // 1 character
+      strcat(path, tmpFilename);
+      strcat(path, "/");
 
       // Serial.print(path);
 
@@ -279,7 +281,7 @@ void CardReader::printListing(SdFile parent, const char * const prepend/*=nullpt
     else if (is_dir_or_gcode(p)) {
       createFilename(filename, p);
       if (prepend) SERIAL_ECHO(prepend);
-      SERIAL_ECHO(filename);
+      SERIAL_ECHO(TERN(LONG_FILENAME_HOST_SUPPORT, longFilename[0] ? longFilename : filename, filename));
       SERIAL_CHAR(' ');
       SERIAL_ECHOLN(p.fileSize);
     }
