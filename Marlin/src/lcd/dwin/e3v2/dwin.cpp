@@ -1115,14 +1115,14 @@ void Popup_window_PauseOrStop() {
 
 void Draw_Printing_Screen() {
   if (HMI_IsChinese()) {
-    DWIN_Frame_AreaCopy(1, 30,  1,  71, 14,  14,   9);  // Tune
-    DWIN_Frame_AreaCopy(1,  0, 72,  63, 86,  41, 188);  // Pause
-    DWIN_Frame_AreaCopy(1, 65, 72, 128, 86, 176, 188);  // Stop
+    DWIN_Frame_AreaCopy(1, 30,  1,  71, 14,  14,   9);  // "Printing"
+    DWIN_Frame_AreaCopy(1,  0, 72,  63, 86,  41, 188);  // "Printing Time"
+    DWIN_Frame_AreaCopy(1, 65, 72, 128, 86, 176, 188);  // "Remain"
   }
   else {
-    DWIN_Frame_AreaCopy(1, 40,  2,  92, 14,  14,   9);  // Tune
-    DWIN_Frame_AreaCopy(1,  0, 44,  96, 58,  41, 188);  // Pause
-    DWIN_Frame_AreaCopy(1, 98, 44, 152, 58, 176, 188);  // Stop
+    DWIN_Frame_AreaCopy(1, 40,  2,  92, 14,  14,   9);  // "Printing"
+    DWIN_Frame_AreaCopy(1,  0, 44,  96, 58,  41, 188);  // "Printing Time"
+    DWIN_Frame_AreaCopy(1, 98, 44, 152, 58, 176, 188);  // "Remain"
   }
 }
 
@@ -1946,9 +1946,9 @@ void Draw_Info_Menu() {
   if (HMI_IsChinese()) {
     DWIN_Frame_TitleCopy(1, 30, 17, 57, 29); // "Info"
 
-    DWIN_Frame_AreaCopy(1, 197, 149, 252, 161, 108, 102);
-    DWIN_Frame_AreaCopy(1, 1, 164, 56, 176, 108, 175);
-    DWIN_Frame_AreaCopy(1, 58, 164, 113, 176, 105, 268);
+    DWIN_Frame_AreaCopy(1, 197, 149, 252, 161, 108, 102); // "Size"
+    DWIN_Frame_AreaCopy(1,   1, 164,  56, 176, 108, 175); // "Firmware version"
+    DWIN_Frame_AreaCopy(1,  58, 164, 113, 176, 105, 268); // "Contact details"
   }
   else {
     #ifdef USE_STRING_HEADINGS
@@ -1957,9 +1957,9 @@ void Draw_Info_Menu() {
       DWIN_Frame_TitleCopy(1, 190, 16, 215, 26); // "Info"
     #endif
 
-    DWIN_Frame_AreaCopy(1, 120, 150, 146, 161, 124, 102);
-    DWIN_Frame_AreaCopy(1, 146, 151, 254, 161, 82, 175);
-    DWIN_Frame_AreaCopy(1, 0, 165, 94, 175, 89, 268);
+    DWIN_Frame_AreaCopy(1, 120, 150, 146, 161, 124, 102); // "Size"
+    DWIN_Frame_AreaCopy(1, 146, 151, 254, 161,  82, 175); // "Firmware version"
+    DWIN_Frame_AreaCopy(1,   0, 165,  94, 175,  89, 268); // "Contact details"
   }
   DWIN_Draw_String(false, false, font8x16, Color_White, Color_Bg_Black, (DWIN_WIDTH - strlen(CORP_WEBSITE) * MENU_CHR_W) / 2, 288, F(CORP_WEBSITE));
 
