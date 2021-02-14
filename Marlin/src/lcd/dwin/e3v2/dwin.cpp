@@ -1558,11 +1558,11 @@ void _update_axis_value(const AxisEnum axis, const uint16_t x, const uint16_t y,
 
   if (force || changed || draw_qmark || draw_empty) {
     if (blink && draw_qmark)
-      DWIN_Draw_String(false, true, font8x16, Color_White, Color_Bg_Black, x, y, F("???.?"));
+      DWIN_Draw_String(false, true, font8x16, Color_White, Color_Bg_Black, x, y, F("???.??"));
     else if (blink && draw_empty)
-      DWIN_Draw_String(false, true, font8x16, Color_White, Color_Bg_Black, x, y, F("     "));
+      DWIN_Draw_String(false, true, font8x16, Color_White, Color_Bg_Black, x, y, F("      "));
     else
-      DWIN_Draw_FloatValue(true, true, 0, font8x16, Color_White, Color_Bg_Black, 3, 1, x, y, p * 10);
+      DWIN_Draw_FloatValue(true, true, 0, font8x16, Color_White, Color_Bg_Black, 3, 2, x, y, p * 100);
   }
 }
 
