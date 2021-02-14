@@ -1122,7 +1122,7 @@ void Draw_Printing_Screen() {
   else {
     DWIN_Frame_AreaCopy(1, 40,  2,  92, 14,  14,   9);  // "Printing"
     DWIN_Frame_AreaCopy(1,  0, 44,  96, 58,  41, 188);  // "Printing Time"
-    DWIN_Frame_AreaCopy(1, 98, 44, 152, 58, 176, 188);  // "Remain"
+    DWIN_Frame_AreaCopy(1, 98, 44, 152, 57, 176, 188);  // "Remain"
   }
 }
 
@@ -1957,7 +1957,7 @@ void Draw_Info_Menu() {
       DWIN_Frame_TitleCopy(1, 190, 16, 215, 26); // "Info"
     #endif
 
-    DWIN_Frame_AreaCopy(1, 120, 150, 146, 161, 124, 102); // "Size"
+    DWIN_Frame_AreaCopy(1, 120, 150, 145, 161, 124, 102); // "Size"
     DWIN_Frame_AreaCopy(1, 146, 151, 254, 161,  82, 175); // "Firmware version"
     DWIN_Frame_AreaCopy(1,   0, 165,  94, 175,  89, 268); // "Contact details"
   }
