@@ -853,14 +853,14 @@ void Draw_Tune_Menu() {
       #endif
       DWIN_Draw_Label(MBASE(TUNE_CASE_ZOFF), GET_TEXT_F(MSG_ZPROBE_ZOFFSET));
     #else
-      DWIN_Frame_AreaCopy(1, 1, 179, 92, 190, LBLX, MBASE(TUNE_CASE_SPEED));      // Print speed
+      DWIN_Frame_AreaCopy(1, 1, 178, 92, 192, LBLX, MBASE(TUNE_CASE_SPEED));      // Printing speed
       #if HAS_HOTEND
-        DWIN_Frame_AreaCopy(1, 197, 104, 238, 114, LBLX, MBASE(TUNE_CASE_TEMP));  // Hotend...
-        DWIN_Frame_AreaCopy(1, 1, 89, 83, 101, LBLX + 44, MBASE(TUNE_CASE_TEMP)); // ...Temperature
+        DWIN_Frame_AreaCopy(1, 197, 104, 239, 114, LBLX, MBASE(TUNE_CASE_TEMP));  // Nozzle...
+        DWIN_Frame_AreaCopy(1, 1, 89, 83, 101, LBLX + 47, MBASE(TUNE_CASE_TEMP)); // ...Temperature
       #endif
       #if HAS_HEATED_BED
         DWIN_Frame_AreaCopy(1, 240, 104, 264, 114, LBLX, MBASE(TUNE_CASE_BED));   // Bed...
-        DWIN_Frame_AreaCopy(1, 1, 89, 83, 101, LBLX + 27, MBASE(TUNE_CASE_BED));  // ...Temperature
+        DWIN_Frame_AreaCopy(1, 1, 89, 83, 101, LBLX + 29, MBASE(TUNE_CASE_BED));  // ...Temperature
       #endif
       #if HAS_FAN
         DWIN_Frame_AreaCopy(1, 0, 119, 64, 132, LBLX, MBASE(TUNE_CASE_FAN));      // Fan speed
@@ -896,20 +896,20 @@ void Draw_Tune_Menu() {
 }
 
 void draw_max_en(const uint16_t line) {
-  DWIN_Frame_AreaCopy(1, 245, 119, 269, 129, LBLX, line);   // "Max"
+  DWIN_Frame_AreaCopy(1, 245, 119, 271, 129, LBLX, line);   // "Max"
 }
 void draw_max_accel_en(const uint16_t line) {
   draw_max_en(line);
-  DWIN_Frame_AreaCopy(1, 1, 135, 79, 145, LBLX + 27, line); // "Acceleration"
+  DWIN_Frame_AreaCopy(1, 0, 135, 79, 145, LBLX + 31, line); // "Acceleration"
 }
 void draw_speed_en(const uint16_t inset, const uint16_t line) {
   DWIN_Frame_AreaCopy(1, 184, 119, 224, 132, LBLX + inset, line); // "Speed"
 }
 void draw_jerk_en(const uint16_t line) {
-  DWIN_Frame_AreaCopy(1, 64, 119, 106, 129, LBLX + 27, line); // "Jerk"
+  DWIN_Frame_AreaCopy(1, 66, 119, 106, 129, LBLX + 31, line); // "Jerk"
 }
 void draw_steps_per_mm(const uint16_t line) {
-  DWIN_Frame_AreaCopy(1, 1, 151, 101, 161, LBLX, line);   // "Steps-per-mm"
+  DWIN_Frame_AreaCopy(1, 1, 151, 90, 163, LBLX, line);   // "Steps-per-mm"
 }
 void say_x(const uint16_t inset, const uint16_t line) {
   DWIN_Frame_AreaCopy(1, 95, 104, 102, 114, LBLX + inset, line); // "X"
@@ -918,7 +918,7 @@ void say_y(const uint16_t inset, const uint16_t line) {
   DWIN_Frame_AreaCopy(1, 104, 104, 110, 114, LBLX + inset, line); // "Y"
 }
 void say_z(const uint16_t inset, const uint16_t line) {
-  DWIN_Frame_AreaCopy(1, 112, 104, 120, 114, LBLX + inset, line); // "Z"
+  DWIN_Frame_AreaCopy(1, 114, 104, 120, 114, LBLX + inset, line); // "Z"
 }
 void say_e(const uint16_t inset, const uint16_t line) {
   DWIN_Frame_AreaCopy(1, 237, 119, 244, 129, LBLX + inset, line); // "E"
@@ -953,7 +953,7 @@ void Draw_Motion_Menu() {
       #endif
       DWIN_Draw_Label(MBASE(MOTION_CASE_STEPS), GET_TEXT_F(MSG_STEPS_PER_MM));
     #else
-      draw_max_en(MBASE(MOTION_CASE_RATE)); draw_speed_en(27, MBASE(MOTION_CASE_RATE)); // "Max Speed"
+      draw_max_en(MBASE(MOTION_CASE_RATE)); draw_speed_en(31, MBASE(MOTION_CASE_RATE)); // "Max Speed"
       draw_max_accel_en(MBASE(MOTION_CASE_ACCEL));                                      // "Max Acceleration"
       #if HAS_CLASSIC_JERK
         draw_max_en(MBASE(MOTION_CASE_JERK)); draw_jerk_en(MBASE(MOTION_CASE_JERK));    // "Max Jerk"
@@ -2512,12 +2512,12 @@ void Draw_Temperature_Menu() {
       #endif
     #else
       #if HAS_HOTEND
-        DWIN_Frame_AreaCopy(1, 197, 104, 238, 114, LBLX, MBASE(TEMP_CASE_TEMP));      // Nozzle...
-        DWIN_Frame_AreaCopy(1, 1, 89, 83, 101, LBLX + 44, MBASE(TEMP_CASE_TEMP));     // ...Temperature
+        DWIN_Frame_AreaCopy(1, 197, 104, 239, 114, LBLX, MBASE(TEMP_CASE_TEMP));      // Nozzle...
+        DWIN_Frame_AreaCopy(1, 1, 89, 83, 101, LBLX + 47, MBASE(TEMP_CASE_TEMP));     // ...Temperature
       #endif
       #if HAS_HEATED_BED
         DWIN_Frame_AreaCopy(1, 240, 104, 264, 114, LBLX, MBASE(TEMP_CASE_BED));       // Bed...
-        DWIN_Frame_AreaCopy(1, 1, 89, 83, 101, LBLX + 27, MBASE(TEMP_CASE_BED));      // ...Temperature
+        DWIN_Frame_AreaCopy(1, 1, 89, 83, 101, LBLX + 29, MBASE(TEMP_CASE_BED));      // ...Temperature
       #endif
       #if HAS_FAN
         DWIN_Frame_AreaCopy(1, 0, 119, 64, 132, LBLX, MBASE(TEMP_CASE_FAN));          // Fan speed
@@ -2818,7 +2818,7 @@ void HMI_Temperature() {
               #endif
             #else
               DWIN_Frame_AreaCopy(1, 157, 76, 181, 86, LBLX, MBASE(PREHEAT_CASE_TEMP));
-              DWIN_Frame_AreaCopy(1, 197, 104, 238, 114, LBLX + 27, MBASE(PREHEAT_CASE_TEMP));
+              DWIN_Frame_AreaCopy(1, 197, 104, 239, 114, LBLX + 27, MBASE(PREHEAT_CASE_TEMP));
               DWIN_Frame_AreaCopy(1, 1, 89, 83, 101, LBLX + 71, MBASE(PREHEAT_CASE_TEMP));      // PLA nozzle temp
               #if HAS_HEATED_BED
                 DWIN_Frame_AreaCopy(1, 157, 76, 181, 86, LBLX, MBASE(PREHEAT_CASE_BED) + 3);
@@ -2830,7 +2830,7 @@ void HMI_Temperature() {
                 DWIN_Frame_AreaCopy(1, 0, 119, 64, 132, LBLX + 27, MBASE(PREHEAT_CASE_FAN));    // PLA fan speed
               #endif
               #if ENABLED(EEPROM_SETTINGS)
-                DWIN_Frame_AreaCopy(1, 97, 165, 229, 177, LBLX, MBASE(PREHEAT_CASE_SAVE));      // Save PLA configuration
+                DWIN_Frame_AreaCopy(1, 97, 165, 230, 177, LBLX, MBASE(PREHEAT_CASE_SAVE));      // Save PLA configuration
               #endif
             #endif
           }
@@ -2897,19 +2897,19 @@ void HMI_Temperature() {
               #endif
             #else
               DWIN_Frame_AreaCopy(1, 172, 76, 198, 86, LBLX, MBASE(PREHEAT_CASE_TEMP));
-              DWIN_Frame_AreaCopy(1, 197, 104, 238, 114, LBLX + 27, MBASE(PREHEAT_CASE_TEMP));
-              DWIN_Frame_AreaCopy(1, 1, 89, 83, 101, LBLX + 71, MBASE(PREHEAT_CASE_TEMP));      // ABS nozzle temp
+              DWIN_Frame_AreaCopy(1, 197, 104, 239, 114, LBLX + 28, MBASE(PREHEAT_CASE_TEMP));
+              DWIN_Frame_AreaCopy(1, 1, 89, 83, 101, LBLX + 72, MBASE(PREHEAT_CASE_TEMP));      // ABS nozzle temp
               #if HAS_HEATED_BED
                 DWIN_Frame_AreaCopy(1, 172, 76, 198, 86, LBLX, MBASE(PREHEAT_CASE_BED) + 3);
-                DWIN_Frame_AreaCopy(1, 240, 104, 264, 114, LBLX + 27, MBASE(PREHEAT_CASE_BED) + 3);
-                DWIN_Frame_AreaCopy(1, 1, 89, 83, 101, LBLX + 54, MBASE(PREHEAT_CASE_BED) + 3); // ABS bed temp
+                DWIN_Frame_AreaCopy(1, 240, 104, 264, 114, LBLX + 28, MBASE(PREHEAT_CASE_BED) + 3);
+                DWIN_Frame_AreaCopy(1, 1, 89, 83, 101, LBLX + 55, MBASE(PREHEAT_CASE_BED) + 3); // ABS bed temp
               #endif
               #if HAS_FAN
                 DWIN_Frame_AreaCopy(1, 172, 76, 198, 86, LBLX, MBASE(PREHEAT_CASE_FAN));
-                DWIN_Frame_AreaCopy(1, 0, 119, 64, 132, LBLX + 27, MBASE(PREHEAT_CASE_FAN));             // ABS fan speed
+                DWIN_Frame_AreaCopy(1, 0, 119, 64, 132, LBLX + 28, MBASE(PREHEAT_CASE_FAN));             // ABS fan speed
               #endif
               #if ENABLED(EEPROM_SETTINGS)
-                DWIN_Frame_AreaCopy(1, 97, 165, 229, 177, LBLX, MBASE(PREHEAT_CASE_SAVE));
+                DWIN_Frame_AreaCopy(1, 97, 165, 230, 177, LBLX, MBASE(PREHEAT_CASE_SAVE));
                 DWIN_Frame_AreaCopy(1, 172, 76, 198, 86, LBLX + 33, MBASE(PREHEAT_CASE_SAVE));                     // Save ABS configuration
               #endif
             #endif
@@ -2976,20 +2976,21 @@ void Draw_Max_Speed_Menu() {
       #endif
     #else
       draw_max_en(MBASE(1));          // "Max"
-      DWIN_Frame_AreaCopy(1, 184, 119, 234, 132, LBLX + 27, MBASE(1)); // "Speed X"
+      draw_speed_en(31, MBASE(1));    // "Speed"
+      say_x(76, MBASE(1));            // "X"
 
       draw_max_en(MBASE(2));          // "Max"
-      draw_speed_en(27, MBASE(2));    // "Speed"
-      say_y(70, MBASE(2));            // "Y"
+      draw_speed_en(31, MBASE(2));    // "Speed"
+      say_y(76, MBASE(2));            // "Y"
 
       draw_max_en(MBASE(3));          // "Max"
-      draw_speed_en(27, MBASE(3));    // "Speed"
-      say_z(70, MBASE(3));            // "Z"
+      draw_speed_en(31, MBASE(3));    // "Speed"
+      say_z(76, MBASE(3));            // "Z"
 
       #if HAS_HOTEND
         draw_max_en(MBASE(4));        // "Max"
-        draw_speed_en(27, MBASE(4));  // "Speed"
-        say_e(70, MBASE(4));          // "E"
+        draw_speed_en(31, MBASE(4));  // "Speed"
+        say_e(76, MBASE(4));          // "E"
       #endif
     #endif
   }
@@ -3039,11 +3040,11 @@ void Draw_Max_Accel_Menu() {
         DWIN_Draw_Label(MBASE(4), F("Max Accel E"));
       #endif
     #else
-      draw_max_accel_en(MBASE(1)); say_x(108, MBASE(1));  // "Max Acceleration X"
-      draw_max_accel_en(MBASE(2)); say_y(108, MBASE(2));  // "Max Acceleration Y"
-      draw_max_accel_en(MBASE(3)); say_z(108, MBASE(3));  // "Max Acceleration Z"
+      draw_max_accel_en(MBASE(1)); say_x(113, MBASE(1));  // "Max Acceleration X"
+      draw_max_accel_en(MBASE(2)); say_y(113, MBASE(2));  // "Max Acceleration Y"
+      draw_max_accel_en(MBASE(3)); say_z(113, MBASE(3));  // "Max Acceleration Z"
       #if HAS_HOTEND
-        draw_max_accel_en(MBASE(4)); say_e(108, MBASE(4)); // "Max Acceleration E"
+        draw_max_accel_en(MBASE(4)); say_e(113, MBASE(4)); // "Max Acceleration E"
       #endif
     #endif
   }
@@ -3100,24 +3101,24 @@ void Draw_Max_Accel_Menu() {
       #else
         draw_max_en(MBASE(1));          // "Max"
         draw_jerk_en(MBASE(1));         // "Jerk"
-        draw_speed_en(72, MBASE(1));    // "Speed"
-        say_x(115, MBASE(1));           // "X"
+        draw_speed_en(76, MBASE(1));    // "Speed"
+        say_x(121, MBASE(1));           // "X"
 
         draw_max_en(MBASE(2));          // "Max"
         draw_jerk_en(MBASE(2));         // "Jerk"
-        draw_speed_en(72, MBASE(2));    // "Speed"
-        say_y(115, MBASE(2));           // "Y"
+        draw_speed_en(76, MBASE(2));    // "Speed"
+        say_y(121, MBASE(2));           // "Y"
 
         draw_max_en(MBASE(3));          // "Max"
         draw_jerk_en(MBASE(3));         // "Jerk"
-        draw_speed_en(72, MBASE(3));    // "Speed"
-        say_z(115, MBASE(3));           // "Z"
+        draw_speed_en(76, MBASE(3));    // "Speed"
+        say_z(121, MBASE(3));           // "Z"
 
         #if HAS_HOTEND
           draw_max_en(MBASE(4));        // "Max"
           draw_jerk_en(MBASE(4));       // "Jerk"
-          draw_speed_en(72, MBASE(4));  // "Speed"
-          say_e(115, MBASE(4));         // "E"
+          draw_speed_en(76, MBASE(4));  // "Speed"
+          say_e(121, MBASE(4));         // "E"
         #endif
       #endif
     }
@@ -3164,11 +3165,11 @@ void Draw_Steps_Menu() {
         DWIN_Draw_Label(MBASE(4), F("Steps/mm E"));
       #endif
     #else
-      draw_steps_per_mm(MBASE(1)); say_x(103, MBASE(1)); // "Steps-per-mm X"
-      draw_steps_per_mm(MBASE(2)); say_y(103, MBASE(2)); // "Y"
-      draw_steps_per_mm(MBASE(3)); say_z(103, MBASE(3)); // "Z"
+      draw_steps_per_mm(MBASE(1)); say_x(94, MBASE(1)); // "Steps-per-mm X"
+      draw_steps_per_mm(MBASE(2)); say_y(94, MBASE(2)); // "Y"
+      draw_steps_per_mm(MBASE(3)); say_z(94, MBASE(3)); // "Z"
       #if HAS_HOTEND
-        draw_steps_per_mm(MBASE(4)); say_e(103, MBASE(4)); // "E"
+        draw_steps_per_mm(MBASE(4)); say_e(94, MBASE(4)); // "E"
       #endif
     #endif
   }
